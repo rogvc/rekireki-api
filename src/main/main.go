@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	var p string
-	if p := os.Getenv("PORT"); p == "" {
+	p := os.Getenv("PORT")
+	if p == "" {
 		p = "4620"
 	}
 
