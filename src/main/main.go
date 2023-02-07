@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"os"
 
@@ -8,12 +9,13 @@ import (
 )
 
 func main() {
+	var p string
 	if p := os.Getenv("PORT"); p == "" {
 		p = "4620"
 	}
 
 	r := setupRouter()
-	r.Run("localhost:4620")
+	r.Run(fmt.Sprintf(":%s", p))
 }
 
 func setupRouter() *gin.Engine {
